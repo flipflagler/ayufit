@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AyurAI — Intelligent Ayurvedic Health</title>
+  <meta name="description" content="AyurAI: AI-powered Ayurvedic health optimization. Discover your Prakriti, scan foods for dosha impact, plan balanced meals, and unlock personalized wellness insights.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-frame">
+    <div class="phone-notch"></div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 1: DASHBOARD                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-dashboard" class="screen active">
+      <div class="screen-scroll">
+        <!-- Header -->
+        <header class="dash-header">
+          <div class="dash-user">
+            <div class="avatar-ring">
+              <div class="avatar-placeholder">AJ</div>
+            </div>
+            <div class="dash-greeting">
+              <span class="label-sm text-sage">PERFORMANCE</span>
+              <h2 class="heading-md">Alex Johnson</h2>
+            </div>
+          </div>
+          <div class="dash-actions">
+            <button class="icon-btn glass-btn" aria-label="Calendar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </button>
+            <button class="icon-btn glass-btn" aria-label="Notifications">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span class="notif-dot"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Dosha Balance Card -->
+        <div class="card glass-card dosha-balance-card float-card" data-float="1">
+          <div class="dosha-card-header">
+            <div>
+              <h3 class="heading-sm">Pitta-Vata</h3>
+              <span class="label-xs text-sage-light">⚡ High Performance State</span>
+            </div>
+            <div class="dosha-leaf-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20c4 0 8.5-3.5 10-10" stroke="#7C9A6E" stroke-width="2" stroke-linecap="round"/><path d="M2 2s7 5 7 14" stroke="#7C9A6E" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="dosha-bars">
+            <div class="dosha-bar-row">
+              <span class="label-xs">PITTA (FIRE)</span>
+              <span class="label-xs text-sage">64%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill pitta-fill" data-width="64"></div>
+            </div>
+            <div class="dosha-bar-split">
+              <div class="dosha-mini">
+                <span class="label-xs">VATA</span>
+                <span class="label-xs text-muted">28%</span>
+                <div class="progress-track sm">
+                  <div class="progress-fill vata-fill" data-width="28"></div>
+                </div>
+              </div>
+              <div class="dosha-mini">
+                <span class="label-xs">KAPHA</span>
+                <span class="label-xs text-muted">8%</span>
+                <div class="progress-track sm">
+                  <div class="progress-fill kapha-fill" data-width="8"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agni Score -->
+        <div class="card glass-card agni-card float-card" data-float="2">
+          <div class="agni-ring-container">
+            <svg class="agni-ring" viewBox="0 0 200 200">
+              <defs>
+                <linearGradient id="agniGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E8A849"/>
+                  <stop offset="50%" stop-color="#7C9A6E"/>
+                  <stop offset="100%" stop-color="#5A7D4A"/>
+                </linearGradient>
+                <filter id="agniGlow">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(124,154,110,0.12)" stroke-width="12"/>
+              <circle class="agni-progress" cx="100" cy="100" r="85" fill="none" stroke="url(#agniGradient)" stroke-width="12" stroke-linecap="round" filter="url(#agniGlow)" stroke-dasharray="534" stroke-dashoffset="534" transform="rotate(-90 100 100)"/>
+            </svg>
+            <div class="agni-score-center">
+              <span class="agni-number" data-target="82">0</span>
+              <span class="agni-label">STRONG AGNI</span>
+            </div>
+          </div>
+          <h4 class="text-center heading-sm">DIGESTIVE FIRE</h4>
+          <p class="text-center text-muted text-sm">Your metabolic rate is optimal for complex proteins. Schedule lunch in 45 mins.</p>
+        </div>
+
+        <!-- Bio-Fuel Cards -->
+        <div class="section-header">
+          <h3 class="heading-sm">TODAY'S BIO-FUEL</h3>
+          <button class="link-btn text-sage">PLAN DETAILS</button>
+        </div>
+        <div class="bio-fuel-scroll">
+          <div class="bio-fuel-card float-card glass-card" data-float="3">
+            <div class="fuel-icon">🌅</div>
+            <span class="label-xs text-sage">BREAKFAST</span>
+            <span class="fuel-name">Spiced Oats</span>
+          </div>
+          <div class="bio-fuel-card float-card glass-card" data-float="4">
+            <div class="fuel-icon">🍲</div>
+            <span class="label-xs" style="color:#E8A849">LUNCH</span>
+            <span class="fuel-name">Mung Dal Kitchari</span>
+          </div>
+          <div class="bio-fuel-card float-card glass-card" data-float="5">
+            <div class="fuel-icon">🌙</div>
+            <span class="label-xs text-brown">DINNER</span>
+            <span class="fuel-name">Zucchini Soup</span>
+          </div>
+        </div>
+
+        <!-- Weekly Balance Trend -->
+        <div class="card glass-card trend-card float-card" data-float="6">
+          <div class="trend-header">
+            <h4 class="label-sm text-sage">WEEKLY BALANCE</h4>
+            <span class="trend-badge">📈 +14% VS LAST WEEK</span>
+          </div>
+          <div class="trend-chart">
+            <svg class="chart-svg" viewBox="0 0 350 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(124,154,110,0.3)"/>
+                  <stop offset="100%" stop-color="rgba(124,154,110,0)"/>
+                </linearGradient>
+              </defs>
+              <path class="chart-area" d="M0,100 C50,90 80,80 120,60 C160,40 190,30 220,25 C250,20 280,15 320,10 L350,8 L350,120 L0,120 Z" fill="url(#chartGrad)"/>
+              <path class="chart-line" d="M0,100 C50,90 80,80 120,60 C160,40 190,30 220,25 C250,20 280,15 320,10 L350,8" fill="none" stroke="#7C9A6E" stroke-width="3" stroke-linecap="round"/>
+              <circle class="chart-dot" cx="350" cy="8" r="5" fill="#7C9A6E"/>
+            </svg>
+            <div class="chart-labels">
+              <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scan FAB -->
+        <button class="fab-scan" id="fab-scan" onclick="navigateTo('scanner')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span>SCAN</span>
+        </button>
+
+        <div class="screen-bottom-spacer"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 2: PRAKRITI FINDER QUIZ             -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-prakriti" class="screen">
+      <div class="screen-scroll">
+        <!-- Quiz Header -->
+        <header class="quiz-header">
+          <button class="icon-btn glass-btn" onclick="navigateTo('dashboard')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="quiz-title-block">
+            <span class="label-xs text-sage">AI BIOHACKING</span>
+            <span class="heading-xs">Prakriti Finder</span>
+          </div>
+          <button class="icon-btn glass-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </button>
+        </header>
+
+        <!-- Progress -->
+        <div class="quiz-progress">
+          <div class="quiz-step-info">
+            <span class="text-sm text-muted">Step 4 of 12</span>
+            <span class="text-sm text-sage">33% Complete</span>
+          </div>
+          <div class="progress-track quiz-track">
+            <div class="progress-fill quiz-fill" data-width="33"></div>
+          </div>
+        </div>
+
+        <!-- Question -->
+        <div class="quiz-question-block">
+          <h2 class="heading-lg quiz-question">How do you typically react to stressful situations?</h2>
+          <p class="text-muted text-sm">Select the response that feels most natural to you.</p>
+        </div>
+
+        <!-- Options -->
+        <div class="quiz-options">
+          <div class="quiz-option glass-card selected" data-dosha="vata" onclick="selectOption(this)">
+            <div class="option-icon vata-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10"/><path d="M22 12c0-5.52-4.48-10-10-10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+            </div>
+            <div class="option-text">
+              <h4>Anxious / Worried</h4>
+              <p class="text-sm text-muted">Vata tendency: Restless mind and quick to worry</p>
+            </div>
+            <div class="option-radio"><div class="radio-inner"></div></div>
+          </div>
+
+          <div class="quiz-option glass-card" data-dosha="pitta" onclick="selectOption(this)">
+            <div class="option-icon pitta-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c0 5-4 7-4 12a4 4 0 0 0 8 0c0-5-4-7-4-12z"/></svg>
+            </div>
+            <div class="option-text">
+              <h4>Aggressive / Irritated</h4>
+              <p class="text-sm text-muted">Pitta tendency: Intense reactions and irritability</p>
+            </div>
+            <div class="option-radio"></div>
+          </div>
+
+          <div class="quiz-option glass-card" data-dosha="kapha" onclick="selectOption(this)">
+            <div class="option-icon kapha-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div class="option-text">
+              <h4>Calm / Withdrawn</h4>
+              <p class="text-sm text-muted">Kapha tendency: Quiet withdrawal or steady calm</p>
+            </div>
+            <div class="option-radio"></div>
+          </div>
+        </div>
+
+        <!-- AI Hint -->
+        <div class="ai-hint glass-card">
+          <div class="ai-hint-dot breathing"></div>
+          <p class="text-sm">This helps our AI determine your mental Dosha response pattern.</p>
+        </div>
+
+        <!-- CTA -->
+        <button class="btn-primary btn-cta" onclick="navigateTo('results')">
+          Next Question
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="text-center label-xs text-muted" style="margin-top:12px">AYURVEDIC AI CORE V2.4</p>
+
+        <div class="screen-bottom-spacer"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 3: PRAKRITI RESULTS                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-results" class="screen">
+      <div class="screen-scroll">
+        <header class="results-header">
+          <button class="icon-btn glass-btn" onclick="navigateTo('prakriti')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <span class="heading-xs">Your Prakriti</span>
+          <button class="icon-btn glass-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          </button>
+        </header>
+
+        <!-- Result Title -->
+        <div class="result-reveal">
+          <span class="label-sm text-sage">DOMINANT BIO-TYPE</span>
+          <h1 class="result-type">Pitta-<span class="text-sage">Vata</span></h1>
+          <p class="text-muted text-sm">A dynamic combination of metabolic fire and mental agility.</p>
+        </div>
+
+        <!-- Dosha Visualization -->
+        <div class="dosha-viz">
+          <svg class="dosha-chart" viewBox="0 0 300 300">
+            <defs>
+              <linearGradient id="pittaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3D5A2B"/>
+                <stop offset="100%" stop-color="#2D3B22"/>
+              </linearGradient>
+              <filter id="vizGlow">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- Pitta circle (largest) -->
+            <circle class="dosha-circle pitta-circle" cx="160" cy="130" r="0" fill="url(#pittaGrad)" filter="url(#vizGlow)" data-target-r="80"/>
+            <text x="160" y="120" text-anchor="middle" fill="white" font-family="Outfit" font-weight="700" font-size="14" class="dosha-viz-label">PITTA</text>
+            <text x="160" y="145" text-anchor="middle" fill="white" font-family="Outfit" font-weight="800" font-size="24" class="dosha-viz-label">50%</text>
+            <!-- Vata circle -->
+            <circle class="dosha-circle vata-circle" cx="90" cy="210" r="0" fill="#7C9A6E" opacity="0.85" filter="url(#vizGlow)" data-target-r="60"/>
+            <text x="90" y="200" text-anchor="middle" fill="white" font-family="Outfit" font-weight="700" font-size="13" class="dosha-viz-label">VATA</text>
+            <text x="90" y="225" text-anchor="middle" fill="white" font-family="Outfit" font-weight="800" font-size="22" class="dosha-viz-label">35%</text>
+            <!-- Kapha circle -->
+            <circle class="dosha-circle kapha-circle" cx="230" cy="230" r="0" fill="#B5C9A8" opacity="0.7" filter="url(#vizGlow)" data-target-r="42"/>
+            <text x="230" y="222" text-anchor="middle" fill="#3D5A2B" font-family="Outfit" font-weight="700" font-size="11" class="dosha-viz-label">KAPHA</text>
+            <text x="230" y="245" text-anchor="middle" fill="#3D5A2B" font-family="Outfit" font-weight="800" font-size="18" class="dosha-viz-label">15%</text>
+          </svg>
+        </div>
+
+        <!-- Tags -->
+        <div class="result-tags">
+          <span class="tag">⚡ High Agni</span>
+          <span class="tag">🧠 Quick Thinker</span>
+          <span class="tag">🏃 Lean Build</span>
+        </div>
+
+        <!-- Biohacking Summary -->
+        <div class="card glass-card insight-card float-card" data-float="7">
+          <div class="insight-header">
+            <div class="insight-icon">📊</div>
+            <div>
+              <h4 class="heading-xs">Metabolic Insight</h4>
+              <span class="label-xs text-muted">Biohacking Summary</span>
+            </div>
+          </div>
+          <p class="text-sm text-italic">"Your Pitta dominance provides a powerful metabolic fire (Agni), making you efficient at processing both nutrients and information. However, your secondary Vata nature can lead to 'burnout' if high-intensity performance isn't balanced with grounding rituals."</p>
+        </div>
+
+        <!-- Traits -->
+        <div class="result-traits">
+          <div class="trait">
+            <div class="trait-dot"></div>
+            <div>
+              <h4 class="heading-xs">Cognitive Focus</h4>
+              <p class="text-sm text-muted">Sharp, analytical mind with a tendency towards creative problem solving. Optimized for deep work cycles of 90 minutes.</p>
+            </div>
+          </div>
+          <div class="trait">
+            <div class="trait-dot brown"></div>
+            <div>
+              <h4 class="heading-xs">Physical Recovery</h4>
+              <p class="text-sm text-muted">Requires intentional cooling down. Benefit from magnesium supplementation and evening breathwork to calm the Vata movement.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <button class="btn-primary btn-cta" onclick="navigateTo('planner')">
+          Start Personal Plan
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+
+        <div class="screen-bottom-spacer"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 4: FOOD SCANNER                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-scanner" class="screen">
+      <div class="scanner-view">
+        <!-- Camera / Dark BG -->
+        <div class="scanner-camera">
+          <div class="scanner-header">
+            <button class="icon-btn scanner-icon-btn" onclick="navigateTo('dashboard')">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="scanner-title-block">
+              <span class="label-xs" style="color:rgba(255,255,255,0.6)">BIO-ANALYSIS</span>
+              <span class="heading-xs" style="color:white">AI Scan & Analysis</span>
+            </div>
+            <button class="icon-btn scanner-icon-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </button>
+          </div>
+
+          <!-- Scan Frame -->
+          <div class="scan-frame">
+            <div class="scan-corner tl"></div>
+            <div class="scan-corner tr"></div>
+            <div class="scan-corner bl"></div>
+            <div class="scan-corner br"></div>
+            <div class="scan-line"></div>
+            <!-- Food emoji placeholder -->
+            <div class="scan-food-preview">🥑</div>
+          </div>
+
+          <!-- Dosha indicators -->
+          <div class="scan-dosha-indicators">
+            <div class="scan-indicator">
+              <span>Pitta</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </div>
+            <div class="scan-indicator orange">
+              <span>Kapha</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Bottom Sheet -->
+        <div class="scanner-sheet glass-card">
+          <div class="sheet-handle"></div>
+
+          <div class="scanner-result-header">
+            <div>
+              <div class="scanner-badges">
+                <span class="badge badge-green">● BALANCING</span>
+                <span class="label-xs text-muted">SCIENTIFIC ID: 09-AT</span>
+              </div>
+              <h2 class="heading-lg">Avocado <strong>Toast</strong></h2>
+            </div>
+            <div class="bio-score">
+              <span class="bio-score-num">84</span>
+              <span class="label-xs">BQS</span>
+              <span class="label-xs text-muted">BIO-SCORE</span>
+            </div>
+          </div>
+
+          <!-- Dosha Impact -->
+          <div class="dosha-impact-row">
+            <div class="impact-card glass-card">
+              <span class="label-xs text-muted">PITTA</span>
+              <span class="impact-value text-sage">Cooling</span>
+              <div class="impact-bar green"></div>
+            </div>
+            <div class="impact-card glass-card">
+              <span class="label-xs text-muted">KAPHA</span>
+              <span class="impact-value text-orange">Increasing</span>
+              <div class="impact-bar orange"></div>
+            </div>
+            <div class="impact-card glass-card">
+              <span class="label-xs text-muted">VATA</span>
+              <span class="impact-value">Neutral</span>
+              <div class="impact-bar blue"></div>
+            </div>
+          </div>
+
+          <!-- Suggested Alternative -->
+          <div class="card glass-card alt-card">
+            <div class="alt-header">
+              <span class="label-xs text-sage">✨ SUGGESTED ALTERNATIVE</span>
+              <span class="label-xs text-sage">+12 BQS</span>
+            </div>
+            <div class="alt-content">
+              <div class="alt-food-img">🥣</div>
+              <div class="alt-info">
+                <h4 class="heading-xs">Warm Quinoa Bowl</h4>
+                <p class="text-sm text-muted">Optimizes Agni for Kapha dominant mornings. Adds thermogenic spice profile.</p>
+              </div>
+              <button class="icon-btn glass-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="scanner-actions">
+            <button class="btn-dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Log Scan
+            </button>
+            <button class="btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Full Report
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 5: MEAL PLANNER                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-planner" class="screen">
+      <div class="screen-scroll">
+        <header class="planner-header">
+          <div>
+            <span class="label-xs text-sage">OPTIMIZATION</span>
+            <h2 class="heading-lg">Meal Planning</h2>
+          </div>
+          <button class="icon-btn glass-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+          </button>
+        </header>
+
+        <!-- Day Selector -->
+        <div class="day-selector">
+          <div class="day-pill"><span class="day-name">MON</span><span class="day-num">12</span></div>
+          <div class="day-pill"><span class="day-name">TUE</span><span class="day-num">13</span></div>
+          <div class="day-pill active"><span class="day-name">WED</span><span class="day-num">14</span></div>
+          <div class="day-pill"><span class="day-name">THU</span><span class="day-num">15</span></div>
+          <div class="day-pill"><span class="day-name">FRI</span><span class="day-num">16</span></div>
+          <div class="day-pill"><span class="day-name">SAT</span><span class="day-num">17</span></div>
+        </div>
+
+        <!-- Macros summary -->
+        <div class="macro-summary">
+          <div class="macro-pill glass-card">
+            <span class="label-xs text-sage">CALORIES</span>
+            <span class="macro-val heading-md">1,850</span>
+            <span class="label-xs text-orange">-5% target</span>
+          </div>
+          <div class="macro-pill glass-card">
+            <span class="label-xs text-sage">PROTEIN</span>
+            <span class="macro-val heading-md">95g</span>
+            <span class="label-xs text-sage">+10% target</span>
+          </div>
+          <div class="macro-pill glass-card">
+            <span class="label-xs text-sage">HARMONY</span>
+            <span class="macro-val heading-md">88%</span>
+            <span class="label-xs text-sage">Optimal</span>
+          </div>
+        </div>
+
+        <!-- Meal Timeline -->
+        <div class="meal-timeline">
+          <!-- Morning -->
+          <div class="meal-block float-card" data-float="8">
+            <div class="meal-time-col">
+              <div class="time-icon sun">☀️</div>
+              <span class="label-xs text-muted">08:00</span>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="meal-card glass-card">
+              <div class="meal-badge">● 92% DOSHA SCORE</div>
+              <div class="meal-food-img" style="background: linear-gradient(135deg, #E8D5B7, #C9A96E);">🥣</div>
+              <div class="meal-info">
+                <h4 class="heading-sm">Spiced Berry Oats</h4>
+                <span class="text-sm text-muted">Kapha-balancing blend</span>
+                <span class="meal-cal">340 kcal</span>
+              </div>
+              <div class="meal-macros">
+                <div class="macro-bar-row"><span class="label-xs">P</span><div class="macro-bar-track"><div class="macro-bar-fill green" style="width:36%"></div></div><span class="label-xs">18g</span></div>
+                <div class="macro-bar-row"><span class="label-xs">F</span><div class="macro-bar-track"><div class="macro-bar-fill orange" style="width:24%"></div></div><span class="label-xs">12g</span></div>
+                <div class="macro-bar-row"><span class="label-xs">C</span><div class="macro-bar-track"><div class="macro-bar-fill blue" style="width:45%"></div></div><span class="label-xs">45g</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lunch -->
+          <div class="meal-block float-card" data-float="9">
+            <div class="meal-time-col">
+              <div class="time-icon noon">🌤️</div>
+              <span class="label-xs text-muted">13:30</span>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="meal-card glass-card">
+              <div class="meal-badge">● 88% DOSHA SCORE</div>
+              <div class="meal-food-img" style="background: linear-gradient(135deg, #8FBC8F, #567D46);">🥗</div>
+              <div class="meal-info">
+                <h4 class="heading-sm">Quinoa Buddha Bowl</h4>
+                <span class="text-sm text-muted">Pitta-soothing greens</span>
+                <span class="meal-cal">520 kcal</span>
+              </div>
+              <div class="meal-macros">
+                <div class="macro-bar-row"><span class="label-xs">P</span><div class="macro-bar-track"><div class="macro-bar-fill green" style="width:64%"></div></div><span class="label-xs">32g</span></div>
+                <div class="macro-bar-row"><span class="label-xs">F</span><div class="macro-bar-track"><div class="macro-bar-fill orange" style="width:44%"></div></div><span class="label-xs">22g</span></div>
+                <div class="macro-bar-row"><span class="label-xs">C</span><div class="macro-bar-track"><div class="macro-bar-fill blue" style="width:68%"></div></div><span class="label-xs">68g</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evening -->
+          <div class="meal-block float-card" data-float="10">
+            <div class="meal-time-col">
+              <div class="time-icon moon">🌙</div>
+              <span class="label-xs text-muted">19:00</span>
+            </div>
+            <div class="meal-card glass-card">
+              <div class="meal-badge">● 95% DOSHA SCORE</div>
+              <div class="meal-food-img" style="background: linear-gradient(135deg, #8B7355, #5C4A2E);">🍲</div>
+              <div class="meal-info">
+                <h4 class="heading-sm">Warm Mung Kitchari</h4>
+                <span class="text-sm text-muted">Vata-grounding spices</span>
+                <span class="meal-cal">410 kcal</span>
+              </div>
+              <div class="meal-macros">
+                <div class="macro-bar-row"><span class="label-xs">P</span><div class="macro-bar-track"><div class="macro-bar-fill green" style="width:40%"></div></div><span class="label-xs">20g</span></div>
+                <div class="macro-bar-row"><span class="label-xs">F</span><div class="macro-bar-track"><div class="macro-bar-fill orange" style="width:28%"></div></div><span class="label-xs">14g</span></div>
+                <div class="macro-bar-row"><span class="label-xs">C</span><div class="macro-bar-track"><div class="macro-bar-fill blue" style="width:52%"></div></div><span class="label-xs">52g</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add FAB -->
+        <button class="fab-add">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+
+        <div class="screen-bottom-spacer"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCREEN 6: INSIGHTS                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="screen-insights" class="screen">
+      <div class="screen-scroll">
+        <header class="insights-header">
+          <div class="dash-user">
+            <div class="avatar-ring small">
+              <div class="avatar-placeholder sm">AJ</div>
+            </div>
+            <div class="dash-greeting">
+              <span class="label-xs text-sage">BIOHACKING CORE</span>
+              <h2 class="heading-md">Smart Insights</h2>
+            </div>
+          </div>
+          <div class="dash-actions">
+            <button class="icon-btn glass-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="5" cy="5" r="2"/><line x1="12" y1="9" x2="12" y2="5"/><line x1="5" y1="7" x2="9.5" y2="10.5"/><line x1="14.5" y1="13.5" x2="19" y2="7"/></svg>
+            </button>
+            <button class="icon-btn glass-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Optimization Goals -->
+        <div class="section-header">
+          <span class="label-sm text-muted">OPTIMIZATION GOALS</span>
+          <span class="label-sm text-sage">Active</span>
+        </div>
+        <div class="goals-row">
+          <div class="goal-card glass-card float-card" data-float="11">
+            <div class="goal-icon fire">🔥</div>
+            <h4 class="heading-xs">Fat Loss</h4>
+            <p class="label-xs text-muted">Metabolic focus enabled</p>
+            <div class="goal-toggle active">
+              <div class="toggle-dot"></div>
+            </div>
+          </div>
+          <div class="goal-card glass-card float-card" data-float="12">
+            <div class="goal-icon brain">🧠</div>
+            <h4 class="heading-xs">Deep Focus</h4>
+            <p class="label-xs text-muted">Nootropic mode off</p>
+            <div class="goal-toggle">
+              <div class="toggle-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digestive Vitality -->
+        <div class="card glass-card vitality-card float-card" data-float="13">
+          <span class="label-sm text-sage">MEDICAL-GRADE ANALYSIS</span>
+          <h3 class="heading-md">Digestive Vitality</h3>
+          <div class="vitality-arc-container">
+            <svg class="vitality-arc" viewBox="0 0 220 140">
+              <defs>
+                <linearGradient id="vitalityGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#B8956A"/>
+                  <stop offset="40%" stop-color="#E8A849"/>
+                  <stop offset="70%" stop-color="#7C9A6E"/>
+                  <stop offset="100%" stop-color="#5A7D4A"/>
+                </linearGradient>
+                <filter id="arcGlow">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <path d="M30,130 A80,80 0 0,1 190,130" fill="none" stroke="rgba(124,154,110,0.1)" stroke-width="14" stroke-linecap="round"/>
+              <path class="vitality-progress" d="M30,130 A80,80 0 0,1 190,130" fill="none" stroke="url(#vitalityGrad)" stroke-width="14" stroke-linecap="round" filter="url(#arcGlow)" stroke-dasharray="251" stroke-dashoffset="251"/>
+            </svg>
+            <div class="vitality-center">
+              <span class="vitality-number" data-target="88">0</span>
+              <span class="label-sm text-sage">● OPTIMAL AGNI</span>
+            </div>
+          </div>
+          <div class="vitality-stats">
+            <div class="vstat">
+              <span class="label-xs text-muted">ENZYME LEVEL</span>
+              <span class="heading-xs">Superior</span>
+            </div>
+            <div class="vstat-divider"></div>
+            <div class="vstat">
+              <span class="label-xs text-muted">TRANSIT TIME</span>
+              <span class="heading-xs">14.2 Hours</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Protocol -->
+        <div class="section-header">
+          <h3 class="heading-sm">AI Growth Protocol</h3>
+          <button class="link-btn text-sage">Live Scan</button>
+        </div>
+        <div class="card protocol-card">
+          <div class="protocol-icon breathing">💡</div>
+          <p class="protocol-text">Based on your Dosha and sleep patterns, increase Ginger intake today to support metabolic fire.</p>
+          <button class="btn-protocol">IMPLEMENT PROTOCOL</button>
+        </div>
+
+        <!-- Performance Pillars -->
+        <div class="section-header">
+          <h3 class="heading-sm">Performance Pillars</h3>
+        </div>
+        <div class="pillars-grid">
+          <div class="pillar-card glass-card float-card" data-float="14">
+            <div class="pillar-icon">😴</div>
+            <h4 class="heading-xs">Optimize Sleep</h4>
+            <div class="pillar-bar-track">
+              <div class="pillar-bar-fill" style="width:78%"></div>
+            </div>
+            <span class="label-xs text-muted">78% Quality</span>
+          </div>
+          <div class="pillar-card glass-card float-card" data-float="15">
+            <div class="pillar-icon">🔥</div>
+            <h4 class="heading-xs">Metabolic Fire</h4>
+            <div class="pillar-bar-track">
+              <div class="pillar-bar-fill orange-fill" style="width:92%"></div>
+            </div>
+            <span class="label-xs text-muted">92% Active</span>
+          </div>
+          <div class="pillar-card glass-card float-card" data-float="16">
+            <div class="pillar-icon">🧘</div>
+            <h4 class="heading-xs">Mind Balance</h4>
+            <div class="pillar-bar-track">
+              <div class="pillar-bar-fill" style="width:85%"></div>
+            </div>
+            <span class="label-xs text-muted">85% Centered</span>
+          </div>
+          <div class="pillar-card glass-card float-card" data-float="17">
+            <div class="pillar-icon">💧</div>
+            <h4 class="heading-xs">Hydration</h4>
+            <div class="pillar-bar-track">
+              <div class="pillar-bar-fill blue-fill" style="width:65%"></div>
+            </div>
+            <span class="label-xs text-muted">65% Target</span>
+          </div>
+        </div>
+
+        <div class="screen-bottom-spacer"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- BOTTOM NAVIGATION                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <nav class="bottom-nav glass-nav">
+      <button class="nav-item active" data-screen="dashboard" onclick="navigateTo('dashboard')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>HOME</span>
+      </button>
+      <button class="nav-item" data-screen="insights" onclick="navigateTo('insights')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>INSIGHTS</span>
+      </button>
+      <button class="nav-item" data-screen="planner" onclick="navigateTo('planner')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <span>RECIPES</span>
+      </button>
+      <button class="nav-item" data-screen="prakriti" onclick="navigateTo('prakriti')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>PROFILE</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
